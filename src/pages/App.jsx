@@ -11,24 +11,9 @@ import { Provider } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import Tabtotop from '../components/common/tabtotop/tabtotop';
 
-
 function App() {
   const [MyclassName, setMyClass] = useState("");
 
-  // const Bodyclickk = () => {
-  //   if (localStorage.getItem("ynexverticalstyles") == "icontext") {
-  //     setMyClass("");
-  //   }
-  //   if (window.innerWidth > 992) {
-  //     let html = document.documentElement;
-  //     if (html.getAttribute('icon-overlay') === 'open') {
-  //         html.setAttribute('icon-overlay' ,"");
-  //     }
-  //   }
-  // }
-
-
- 
   useEffect(() => {
     import("preline");
 
@@ -57,7 +42,6 @@ function App() {
             <Sidebar/>
             <div className='content main-index'>
               <div className='main-content'
-                // onClick={Bodyclickk}
               >
                 <Outlet />
               </div>

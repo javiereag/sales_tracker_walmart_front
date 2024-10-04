@@ -345,6 +345,7 @@ const Crm = () => {
                         </div>
                       </div>
                     </div>
+                    {/** Table analytics */}
                     <div className="xxl:col-span-12 xl:col-span-12 col-span-12">
                       <div className="box">
                         <div className="box-header !gap-0 !m-0 justify-between">

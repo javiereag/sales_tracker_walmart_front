@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/dashboard/dashboard";
 import App from "../pages/App";
 import SalesTracker from "../pages/sales-tracker/sales-tracker";
+import NotFound from "../pages/not-found/not-found";
 
 export const Navigation = () => {
   return (
@@ -23,6 +24,7 @@ export const Navigation = () => {
               element={<SalesTracker />}
             />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Provider>
     </React.Fragment>

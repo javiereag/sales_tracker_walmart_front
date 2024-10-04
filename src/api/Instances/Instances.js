@@ -1,15 +1,9 @@
 import axios from "axios";
-import { token } from "../../helper/getTokens/getTokens";
 const baseURL = process.env.URL;
 
 export const InstanceAxios = () => {
   const headers = {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-    "Access-Control-Allow-Headers":
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-    token,
   };
   return axios.create({
     baseURL,

@@ -12,8 +12,10 @@ function CardDisplayData({ title, value, type, icon, color }) {
           {icon}
         </div>
       </div>
-      <div className="flex flex-col justify-center items-end px-2 w-5/12">
-        <div className="font-semibold text-end text-gray-700 text-xs">{title}</div>
+      <div className="flex flex-col justify-center items-end px-2 w-7/12">
+        <div className="w-full font-semibold text-end text-gray-700 text-xs">
+          {title}
+        </div>
         <div className="font-bold text-xl">
           {type === "porcentage"
             ? `${value.toFixed(2)}%`

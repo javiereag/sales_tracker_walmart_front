@@ -73,12 +73,13 @@ function AnalyticsDashBoardInvoice({ data }) {
   });
 
   useEffect(() => {
-    if (data) {
+    if (data.length) {
       const netProceedsData = [];
       const totalCostData = [];
       const netProfitData = [];
       const qtyOrderedData = [];
       const categories = [];
+      console.log(data);
 
       data.forEach((item) => {
         netProceedsData.push(item.net_proceeds);

@@ -1,31 +1,35 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import TopInDashboard from "../../components/dashboard-components/top-in-dashboard";
 import AnalyticDash from "../../components/dashboard-components/analytic-dash";
 import BottomAnalytic from "../../components/dashboard-components/bottom-analytic";
+import { dataToAnalytics } from "../../api/transaction";
+import { formatDates } from "../../helpers/formatDates";
 
 function Dashboard() {
+  const [data, setData] = useState([]);
+  const [datePicker, setDatePicker] = useState({
+    initialDate: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+    finalDate: new Date(),
+  });
+  const getDataForLines = async ({ initialDate, finalDate }) => {
+    try {
+      const transactions = await dataToAnalytics(
+        formatDates(initialDate),
+        formatDates(finalDate)
+      );
+      setData(transactions);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    getDataForLines(datePicker);
+  }, [datePicker.finalDate]);
   return (
     <Fragment>
       <div className="gap-x-6 grid grid-cols-12 py-2">
-        <TopInDashboard />
-        <AnalyticDash
-          data={[
-            {
-              net_proceeds: 1000,
-              total_cost: 500,
-              net_profit: 900,
-              qty_ordered: 80,
-              posted_date: "2023-09-01",
-            },
-            {
-              net_proceeds: 500,
-              total_cost: 250,
-              net_profit: 450,
-              qty_ordered: 40,
-              posted_date: "2023-09-02",
-            },
-          ]}
-        />
+        <TopInDashboard datePicker={datePicker} setDatePicker={setDatePicker} />
+        <AnalyticDash data={data} />
         <BottomAnalytic />
       </div>
     </Fragment>

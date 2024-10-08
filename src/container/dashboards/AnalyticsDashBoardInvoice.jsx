@@ -79,7 +79,6 @@ function AnalyticsDashBoardInvoice({ data }) {
       const netProfitData = [];
       const qtyOrderedData = [];
       const categories = [];
-      console.log(data);
 
       data.forEach((item) => {
         netProceedsData.push(item.net_proceeds);
@@ -110,7 +109,7 @@ function AnalyticsDashBoardInvoice({ data }) {
         options={chartData.options}
         series={chartData.series}
         type="line"
-        height={300}
+        height={250}
       />
     </div>
   );

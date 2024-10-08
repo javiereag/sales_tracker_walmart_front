@@ -2,7 +2,7 @@ import { OPTIONS_SALES_TRACKER } from "../../helpers/sales-tracker-helper/list-o
 
 function ModalTotals({ handleModal }) {
   return (
-    <div className="relative z-40 inset-0 flex flex-col justify-center items-center w-72 box">
+    <div className="z-40 !absolute inset-0 flex flex-col justify-center items-center w-72 box">
       <div className="flex flex-col justify-center items-center">
         {OPTIONS_SALES_TRACKER.map((ele, id) => (
           <div

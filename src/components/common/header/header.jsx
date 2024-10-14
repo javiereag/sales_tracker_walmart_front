@@ -32,10 +32,19 @@ import toggledark from "../../../assets/images/brand-logos/toggle-dark.png";
 import desktopwhite from "../../../assets/images/brand-logos/desktop-white.png";
 import togglewhite from "../../../assets/images/brand-logos/toggle-white.png";
 import SimpleBar from "simplebar-react";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { getStoreOptions } from "../../../api/stores";
 
 const Header = ({ local_varaiable, ThemeChanger }) => {
   //Fullscvreen
   const [fullScreen, setFullScreen] = useState(false);
+
+  const [storeOptions, setStoreOptions] = useLocalStorage("storeOptions", []);
+
+  const [store, setStore] = useLocalStorage(
+    "store",
+    "Trinity Distributors LLC"
+  );
 
   const toggleFullScreen = () => {
     const elem = document.documentElement;
@@ -51,8 +60,15 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
     setFullScreen(!!document.fullscreenElement);
   };
 
+  const saveStores = async () => {
+    setStoreOptions([]);
+    const response = await getStoreOptions();
+    setStoreOptions(response);
+  };
+
   useEffect(() => {
     document.addEventListener("fullscreenchange", handleFullscreenChange);
+    saveStores();
 
     return () => {
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
@@ -121,58 +137,7 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
     setCartItems(updatedCart);
     setCartItemCount(updatedCart.length);
   };
-  const initialNotifications = [
-    {
-      id: 1,
-      color: "primary",
-      avatarColor: "!bg-primary",
-      icon: "ti-gift",
-      text1: "Your Order Has Been Shipped",
-      text2: "Order No: 123456 Has Shipped To Your Delivery Address",
-      class: "",
-      class1: "",
-    },
-    {
-      id: 2,
-      color: "secondary",
-      avatarColor: "bg-secondary",
-      icon: "ti-discount-2",
-      text1: "Discount Available",
-      text2: "Discount Available On Selected Products",
-      class: "",
-      class1: "",
-    },
-    {
-      id: 3,
-      color: "pink",
-      avatarColor: "bg-pink",
-      icon: "ti-user-check",
-      text1: "Account Has Been Verified",
-      text2: "Your Account Has Been Verified Successfully",
-      class: "",
-      class1: "",
-    },
-    {
-      id: 4,
-      color: "warning",
-      avatarColor: "bg-warning",
-      icon: "ti-circle-check",
-      text1: "Order Placed ",
-      text2: "Order Placed Successflly",
-      class: "text-warning",
-      class1: " ID: #1116773",
-    },
-    {
-      id: 5,
-      color: "success",
-      avatarColor: "bg-success",
-      icon: "ti-clock",
-      text1: "Order Delayed",
-      text2: "Order Delayed Unfortunately",
-      class: "text-success",
-      class1: " ID: 7731116",
-    },
-  ];
+  const initialNotifications = [];
 
   const [notifications, setNotifications] = useState([...initialNotifications]);
 
@@ -375,10 +340,7 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
             <div className="header-content-left">
               <div className="header-element">
                 <div className="horizontal-logo">
-                  <a
-                    href={`/dashboards/`}
-                    className="header-logo"
-                  >
+                  <a href={`/dashboards/`} className="header-logo">
                     <img
                       src={desktoplogo}
                       alt="logo"
@@ -416,6 +378,21 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
                   <span></span>
                 </Link>
               </div>
+              <select
+                className="form-select !border-none"
+                onChange={(e) => {
+                  const { value } = e.target;
+                  if (!value) return;
+                  setStore(value);
+                }}
+                value={store}
+              >
+                {storeOptions?.map((ele, key) => (
+                  <option value={ele.value} key={key}>
+                    {ele.label}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="header-content-right">
@@ -1110,4 +1087,3 @@ const mapStateToProps = (state) => ({
   local_varaiable: state,
 });
 export default connect(mapStateToProps, { ThemeChanger })(Header);
-

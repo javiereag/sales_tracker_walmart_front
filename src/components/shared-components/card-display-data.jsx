@@ -1,13 +1,11 @@
-function CardDisplayData({ title, value, type, icon, color }) {
+function CardDisplayData({ title, value, type, icon, color, rounded }) {
   return (
     <div className="flex !flex-row justify-around items-center w-full h-24 box">
-      <div className={`h-full w-5/12 flex justify-center items-center`}>
+      <div className={`h-full w-5/12 flex justify-start pl-4 items-center`}>
         <div
           className={`flex justify-center items-center ${
-            color
-              ? `bg-[#${color}] text-[#${color}]`
-              : "bg-[#3FC0E8] text-[#3FC0E8]"
-          } bg-opacity-15  text-xl rounded-md w-5/12 h-2/4`}
+            color ? `bg-${color} text-white` : "bg-[#3FC0E8] text-[#3FC0E8]"
+          } bg-opacity-15  text-xl ${rounded ? "rounded-full" : "rounded-md"} w-12 h-12`}
         >
           {icon}
         </div>
@@ -18,9 +16,12 @@ function CardDisplayData({ title, value, type, icon, color }) {
         </div>
         <div className="font-bold text-xl">
           {type === "porcentage"
-            ? `${value.toFixed(2)}%`
+            ? `${value?.toFixed(2)}%`
             : type === "price"
-            ? `$${value.toFixed(2)}`
+            ? `$${new Intl.NumberFormat("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(value)}`
             : value}
         </div>
       </div>

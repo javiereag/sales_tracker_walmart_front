@@ -1,9 +1,9 @@
 function Paginator({ page, totalPages, handleJumpPage }) {
   return (
-    <ul className="ti-pagination">
+    <ul className="w-full ti-pagination">
       <li className="page-item" onClick={() => handleJumpPage(0)}>
         <span
-          className={`page-link px-3 py-[0.375rem]  ${
+          className={`page-link !rounded-none px-3 py-[0.375rem]  ${
             page === 0 ? "disabled cursor-not-allowed" : "cursor-pointer"
           }`}
           to="#"
@@ -59,7 +59,7 @@ function Paginator({ page, totalPages, handleJumpPage }) {
       </li>
       <li className="page-item" onClick={() => handleJumpPage(totalPages - 1)}>
         <span
-          className={`page-link px-3 py-[0.375rem]  ${
+          className={`page-link !rounded-none  px-3 py-[0.375rem]  ${
             page === totalPages - 1
               ? "disabled cursor-not-allowed"
               : "cursor-pointer"

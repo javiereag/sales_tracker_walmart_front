@@ -24,7 +24,6 @@ function CalendarDash({ datePicker, setDatePicker }) {
                 finalDate: update[1],
               });
             }}
-            isClearable={true}
           />
         </div>
       </div>

@@ -47,92 +47,92 @@ const Modalsearch = () => {
 
   return(
   <Fragment>
-     <div id="search-modal" className="hs-overlay ti-modal hidden mt-[1.75rem]"  onClick={handleClose}>
+     <div id="search-modal" className="hidden mt-[1.75rem] hs-overlay ti-modal"  onClick={handleClose}>
     <div className="ti-modal-box">
-      <div className="ti-modal-content !border !border-defaultborder dark:!border-defaultborder/10 !rounded-[0.5rem]">
+      <div className="!border-defaultborder dark:!border-defaultborder/10 !border !rounded-[0.5rem] ti-modal-content">
         <div className="ti-modal-body">
   
-          <div className="input-group border-[2px] border-primary rounded-[0.25rem] w-full flex">
+          <div className="flex border-[2px] border-primary rounded-[0.25rem] w-full input-group">
             <a aria-label="anchor" href="#!"
-              className="input-group-text flex items-center bg-light border-e-[#dee2e6] !py-[0.375rem] !px-[0.75rem] !rounded-none !text-[0.875rem]"
-              id="Search-Grid"><i className="fe fe-search header-link-icon text-[0.875rem]"></i></a>
+              className="flex items-center border-e-[#dee2e6] bg-light !px-[0.75rem] !py-[0.375rem] !rounded-none !text-[0.875rem] input-group-text"
+              id="Search-Grid"><i className="text-[0.875rem] fe fe-search header-link-icon"></i></a>
   
-            <input type="search" className="form-control border-0 px-2 !text-[0.8rem] w-full focus:ring-transparent"
+            <input type="search" className="border-0 form-control px-2 focus:ring-transparent w-full !text-[0.8rem]"
               placeholder="Search" aria-label="Username"
               autoComplete="off"/>
   
-            <a aria-label="anchor" href="#!" className="flex items-center input-group-text bg-light !py-[0.375rem] !px-[0.75rem]"
+            <a aria-label="anchor" href="#!" className="flex items-center bg-light !px-[0.75rem] !py-[0.375rem] input-group-text"
               id="voice-search"><i className="fe fe-mic header-link-icon"></i></a>
             <div className="hs-dropdown ti-dropdown">
               <a aria-label="anchor" href="#!"
-                className="flex items-center !border-0 hs-dropdown-toggle ti-dropdown-toggle btn btn-light btn-icon !bg-light !py-[0.375rem] !rounded-none !px-[0.75rem] text-[0.95rem] h-[2.413rem] w-[2.313rem]">
+                className="flex items-center !border-0 !bg-light !px-[0.75rem] !py-[0.375rem] !rounded-none w-[2.313rem] h-[2.413rem] text-[0.95rem] btn btn-icon btn-light hs-dropdown-toggle ti-dropdown-toggle">
                 <i className="fe fe-more-vertical"></i>
               </a>
-              <ul className="absolute hs-dropdown-menu ti-dropdown-menu !-mt-2 !p-0 hidden">
+              <ul className="absolute hidden !-mt-2 !p-0 hs-dropdown-menu ti-dropdown-menu">
                 <li><a
-                    className="ti-dropdown-item flex text-defaulttextcolor dark:text-defaulttextcolor/70 !py-[0.5rem] !px-[0.9375rem] !text-[0.8125rem] font-medium"
+                    className="flex !px-[0.9375rem] !py-[0.5rem] font-medium !text-[0.8125rem] text-defaulttextcolor dark:text-defaulttextcolor/70 ti-dropdown-item"
                     href="#!">Action</a></li>
                 <li><a
-                    className="ti-dropdown-item flex text-defaulttextcolor dark:text-defaulttextcolor/70 !py-[0.5rem] !px-[0.9375rem] !text-[0.8125rem] font-medium"
+                    className="flex !px-[0.9375rem] !py-[0.5rem] font-medium !text-[0.8125rem] text-defaulttextcolor dark:text-defaulttextcolor/70 ti-dropdown-item"
                     href="#!">Another action</a></li>
                 <li><a
-                    className="ti-dropdown-item flex text-defaulttextcolor dark:text-defaulttextcolor/70 !py-[0.5rem] !px-[0.9375rem] !text-[0.8125rem] font-medium"
+                    className="flex !px-[0.9375rem] !py-[0.5rem] font-medium !text-[0.8125rem] text-defaulttextcolor dark:text-defaulttextcolor/70 ti-dropdown-item"
                     href="#!">Something else here</a></li>
                 <li>
                   <hr className="dropdown-divider"/>
                 </li>
                 <li><a
-                    className="ti-dropdown-item flex text-defaulttextcolor dark:text-defaulttextcolor/70 !py-[0.5rem] !px-[0.9375rem] !text-[0.8125rem] font-medium"
+                    className="flex !px-[0.9375rem] !py-[0.5rem] font-medium !text-[0.8125rem] text-defaulttextcolor dark:text-defaulttextcolor/70 ti-dropdown-item"
                     href="#!">Separated link</a></li>
               </ul>
             </div>
           </div>
           <div className="mt-5">
-            <p className="font-normal  text-[#8c9097] dark:text-white/50 text-[0.813rem] dark:text-gray-200 mb-2">Are You Looking For...</p>
+            <p className="mb-2 font-normal text-[#8c9097] text-[0.813rem] dark:text-white/50 dark:text-gray-200">Are You Looking For...</p>
   
-            {items.map((idx, index)=>(
-            <span className="search-tags text-[0.75rem] !py-[0rem] !px-[0.55rem] dark:border-defaultborder/10 me-1" key={index}>
+            {items?.map((idx, index)=>(
+            <span className="dark:border-defaultborder/10 !px-[0.55rem] !py-[0rem] search-tags text-[0.75rem] me-1" key={index}>
               <i className="fe fe-user me-2"></i>{idx.name}<a
-                href="#!" className="tag-addon header-remove-btn" onClick={() => handleRemove(index)}><span className="sr-only">Remove badge</span><i className="fe fe-x"></i></a></span>
+                href="#!" className="header-remove-btn tag-addon" onClick={() => handleRemove(index)}><span className="sr-only">Remove badge</span><i className="fe fe-x"></i></a></span>
                 ))}
   
           </div>
   
   
           <div className="my-[1.5rem]">
-            <p className="font-normal  text-[#8c9097] dark:text-white/50 text-[0.813rem] mb-2">Recent Search :</p>
+            <p className="mb-2 font-normal text-[#8c9097] text-[0.813rem] dark:text-white/50">Recent Search :</p>
   
             <div id="dismiss-alert" role="alert"
-              className="!p-2 border dark:border-defaultborder/10 rounded-[0.3125rem] flex items-center text-defaulttextcolor dark:text-defaulttextcolor/70 !mb-2 !text-[0.8125rem] alert">
+              className="flex items-center dark:border-defaultborder/10 !mb-2 !p-2 border rounded-[0.3125rem] !text-[0.8125rem] text-defaulttextcolor dark:text-defaulttextcolor/70 alert">
               <Link to="#"><span>Notifications</span></Link>
-              <Link aria-label="anchor" className="ms-auto leading-none" to="#" data-hs-remove-element="#dismiss-alert"><i
-                  className="fe fe-x !text-[0.8125rem] text-[#8c9097] dark:text-white/50"></i></Link>
+              <Link aria-label="anchor" className="leading-none ms-auto" to="#" data-hs-remove-element="#dismiss-alert"><i
+                  className="!text-[0.8125rem] text-[#8c9097] dark:text-white/50 fe fe-x"></i></Link>
             </div>
   
             <div id="dismiss-alert1" role="alert"
-              className="!p-2 border dark:border-defaultborder/10 rounded-[0.3125rem] flex items-center text-defaulttextcolor dark:text-defaulttextcolor/70 !mb-2 !text-[0.8125rem] alert">
+              className="flex items-center dark:border-defaultborder/10 !mb-2 !p-2 border rounded-[0.3125rem] !text-[0.8125rem] text-defaulttextcolor dark:text-defaulttextcolor/70 alert">
               <Link to="#"><span>Alerts</span></Link>
-              <Link aria-label="anchor" className="ms-auto leading-none" to="#" data-hs-remove-element="#dismiss-alert1"><i
-                  className="fe fe-x !text-[0.8125rem] text-[#8c9097] dark:text-white/50"></i></Link>
+              <Link aria-label="anchor" className="leading-none ms-auto" to="#" data-hs-remove-element="#dismiss-alert1"><i
+                  className="!text-[0.8125rem] text-[#8c9097] dark:text-white/50 fe fe-x"></i></Link>
             </div>
   
             <div id="dismiss-alert2" role="alert"
-              className="!p-2 border dark:border-defaultborder/10 rounded-[0.3125rem] flex items-center text-defaulttextcolor dark:text-defaulttextcolor/70 !mb-0 !text-[0.8125rem] alert">
+              className="flex items-center dark:border-defaultborder/10 !mb-0 !p-2 border rounded-[0.3125rem] !text-[0.8125rem] text-defaulttextcolor dark:text-defaulttextcolor/70 alert">
               <Link to="#"><span>Mail</span></Link>
-              <Link aria-label="anchor" className="ms-auto lh-1" to="#" data-hs-remove-element="#dismiss-alert2"><i
-                  className="fe fe-x !text-[0.8125rem] text-[#8c9097] dark:text-white/50"></i></Link>
+              <Link aria-label="anchor" className="lh-1 ms-auto" to="#" data-hs-remove-element="#dismiss-alert2"><i
+                  className="!text-[0.8125rem] text-[#8c9097] dark:text-white/50 fe fe-x"></i></Link>
             </div>
           </div>
         </div>
   
-        <div className="ti-modal-footer !py-[1rem] !px-[1.25rem]">
-          <div className="inline-flex rounded-md  shadow-sm">
+        <div className="!px-[1.25rem] !py-[1rem] ti-modal-footer">
+          <div className="inline-flex shadow-sm rounded-md">
             <button type="button"
-              className="ti-btn-group !px-[0.75rem] !py-[0.45rem]  rounded-s-[0.25rem] !rounded-e-none ti-btn-primary !text-[0.75rem] dark:border-white/10">
+              className="dark:border-white/10 !px-[0.75rem] !py-[0.45rem] !rounded-e-none rounded-s-[0.25rem] !text-[0.75rem] ti-btn-group ti-btn-primary">
               Search
             </button>
             <button type="button"
-              className="ti-btn-group  ti-btn-primary-full rounded-e-[0.25rem] dark:border-white/10 !text-[0.75rem] !rounded-s-none !px-[0.75rem] !py-[0.45rem]">
+              className="dark:border-white/10 !px-[0.75rem] !py-[0.45rem] !rounded-s-none rounded-e-[0.25rem] !text-[0.75rem] ti-btn-group ti-btn-primary-full">
               Clear Recents
             </button>
           </div>

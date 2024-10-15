@@ -32,7 +32,7 @@ function Menuloop({ MENUITEMS, toggleSidemenu, HoverToggleInnerMenuFn, level}) {
                {level <= 1 ? <li className='slide side-menu__label1'>
                    <Link to="#">{MENUITEMS.title}</Link> 
                 </li> :""}
-                {MENUITEMS.children.map((firstlevel)=>
+                {MENUITEMS?.children?.map((firstlevel)=>
                     <li className={`${firstlevel.menutitle ? 'slide__category' : ''} ${firstlevel?.type == 'empty' ? 'slide' : ''} ${firstlevel?.type == 'link' ? 'slide' : ''} ${firstlevel?.type == 'sub' ? 'slide has-sub' : ''} ${firstlevel?.active ? 'open' : ''} ${firstlevel?.selected ? 'active' : ''}`} key={Math.random()}>
                    {firstlevel.type === "link" ?
                         <Link to={firstlevel.path + "/"} className={`side-menu__item ${firstlevel.selected ? 'active' : ''}`}>

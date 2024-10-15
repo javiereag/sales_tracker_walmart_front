@@ -21,7 +21,7 @@ function Paginator({ page, totalPages, handleJumpPage }) {
           Prev
         </span>
       </li>
-      {Array.from({ length: totalPages }).map((_, index) => {
+      {Array.from({ length: totalPages })?.map((_, index) => {
         if (
           index === 0 ||
           index === page ||

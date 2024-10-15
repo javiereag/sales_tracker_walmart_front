@@ -15,7 +15,7 @@ function DinamicSearchBar({ selectedOption, handleSelected, executeFunc }) {
         onChange={handleSelected}
         value={selectedOption}
       >
-        {options.map((option, i) => (
+        {options?.map((option, i) => (
           <option className={`ti-form-select`} key={i} value={option.value}>
             {option.label}
           </option>

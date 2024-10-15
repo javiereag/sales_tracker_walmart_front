@@ -4,7 +4,7 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 
-function TableTransactions({ data, columns }) {
+function TableTransactions({ data = [], columns }) {
   const table = useReactTable({
     data,
     columns,
@@ -19,7 +19,9 @@ function TableTransactions({ data, columns }) {
               {headerGroup?.headers?.map((header) => (
                 <th
                   className={`top-0 sticky bg-gray-100 px-2  ${
-                    header.column.id === "consecutive" ? "w-24 text-center" : "min-w-40 text-start"
+                    header.column.id === "consecutive"
+                      ? "w-24 text-center"
+                      : "min-w-40 text-start"
                   }`}
                   key={header.id}
                 >
@@ -38,7 +40,9 @@ function TableTransactions({ data, columns }) {
               {row?.getVisibleCells()?.map((cell, id) => (
                 <td
                   className={`border-gray-300 px-2 border-b  ${
-                    cell.column.id === "consecutive" ? "w-24 text-center" : "min-w-40 text-start"
+                    cell.column.id === "consecutive"
+                      ? "w-24 text-center"
+                      : "min-w-40 text-start"
                   } `} // Ancho mínimo para las celdas
                   key={id}
                 >

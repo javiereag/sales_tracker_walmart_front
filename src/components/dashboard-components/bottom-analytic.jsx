@@ -3,7 +3,7 @@ import CardDisplayData from "../shared-components/card-display-data";
 function BottomAnalytic({
   dataCards: { total_qty_ordered = 0, total_selling = 0 },
 }) {
-  const icon = <i class="bi-receipt-cutoff bi"></i>;
+  const icon = <i className="bi-receipt-cutoff bi"></i>;
   return (
     <div className="gap-x-6 grid grid-cols-12 col-span-12 xxl:col-span-12 xl:col-span-12">
       <div className="col-span-2">

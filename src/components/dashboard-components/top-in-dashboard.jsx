@@ -11,7 +11,7 @@ function TopInDashboard({
   },
   setDatePicker,
 }) {
-  const icon = <i class="bi-receipt-cutoff bi"></i>;
+  const icon = <i className="bi-receipt-cutoff bi"></i>;
   return (
     <div className="gap-x-6 grid grid-cols-12 col-span-12 xxl:col-span-12 xl:col-span-12">
       <CalendarDash datePicker={datePicker} setDatePicker={setDatePicker} />

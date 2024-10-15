@@ -1,4 +1,4 @@
-function Paginator({ page, totalPages, handleJumpPage }) {
+function Paginator({ page = 0, totalPages = 0, handleJumpPage }) {
   return (
     <ul className="w-full ti-pagination">
       <li className="page-item" onClick={() => handleJumpPage(0)}>

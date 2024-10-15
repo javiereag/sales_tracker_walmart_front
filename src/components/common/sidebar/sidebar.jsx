@@ -607,7 +607,7 @@ const handleClick = (event) => {
         onMouseLeave={() => Outhover()}>
 
         <div className="main-sidebar-header">
-          <a href={`${import.meta.env.BASE_URL}dashboards/crm/`} className="header-logo">
+          <a href={`/dashboards/`} className="header-logo">
             <img src={logo1} alt="logo" className="desktop-logo" />
             <img src={logo2} alt="logo" className="toggle-logo" />
             <img src={logo3} alt="logo" className="desktop-dark" />

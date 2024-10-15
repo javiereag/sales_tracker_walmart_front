@@ -585,7 +585,7 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
                     <hr className="dropdown-divider dark:border-white/10" />
                   </div>
                   <ul className="list-none mb-0" id="header-cart-items-scroll">
-                    {cartItems.map((idx) => (
+                    {cartItems?.map((idx) => (
                       <li
                         className="ti-dropdown-item border-b dark:border-defaultborder/10 border-defaultborder"
                         key={Math.random()}
@@ -702,7 +702,7 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
                   <div className="dropdown-divider"></div>
                   <ul className="list-none !m-0 !p-0 end-0">
                     <SimpleBar id="header-notification-scroll">
-                      {notifications.map((notification, index) => (
+                      {notifications?.map((notification, index) => (
                         <li
                           className="ti-dropdown-item dropdown-item"
                           key={index}

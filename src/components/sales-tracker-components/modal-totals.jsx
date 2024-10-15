@@ -4,7 +4,7 @@ function ModalTotals({ handleModal }) {
   return (
     <div className="z-40 !absolute inset-0 flex flex-col justify-center items-center w-72 box">
       <div className="flex flex-col justify-center items-center">
-        {OPTIONS_SALES_TRACKER.map((ele, id) => (
+        {OPTIONS_SALES_TRACKER?.map((ele, id) => (
           <div
             className="flex flex-row justify-between items-center w-52"
             key={id}

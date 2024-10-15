@@ -5,11 +5,11 @@ function TopSalesTracker({ handleCards }) {
   const [selecteds, setSelecteds] = useState(CARDS_NAMES);
 
   const clear = () => {
-    const cleared = selecteds.map((ele) => ({ ...ele, selected: false }));
+    const cleared = selecteds?.map((ele) => ({ ...ele, selected: false }));
     setSelecteds(cleared);
   };
   const fill = () => {
-    const filled = selecteds.map((ele) => ({ ...ele, selected: true }));
+    const filled = selecteds?.map((ele) => ({ ...ele, selected: true }));
     setSelecteds(filled);
   };
   const resetDefault = () => {
@@ -118,7 +118,7 @@ function TopSalesTracker({ handleCards }) {
                   checked={ele.selected}
                   onClick={() => {
                     setSelecteds((prev) =>
-                      prev.map((e) => {
+                      prev?.map((e) => {
                         if (e.label === ele.label) {
                           e.selected = !e.selected;
                         }

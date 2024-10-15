@@ -5,7 +5,7 @@ function LimitComponent({ handler, value }) {
       value={value}
       onChange={handler}
     >
-      {[10, 20, 30, 40, 50].map((ele, id) => (
+      {[10, 20, 30, 40, 50]?.map((ele, id) => (
         <option key={id}>{ele}</option>
       ))}
     </select>

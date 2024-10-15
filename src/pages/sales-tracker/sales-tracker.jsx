@@ -147,7 +147,7 @@ function SalesTracker() {
           </div>
         </div>
         <div className="h-[70vh]">
-          {dataTable.length ? (
+          {dataTable?.length ? (
             <TableTransactions data={dataTable} columns={columns} />
           ) : (
             <Loader />

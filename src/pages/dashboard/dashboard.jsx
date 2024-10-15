@@ -72,7 +72,7 @@ function Dashboard() {
         <AnalyticDash data={dataAnalytic || []} />
         <BottomAnalytic dataCards={dataCards} />
         <div className="gap-x-6 grid grid-cols-12 col-span-12 xxl:col-span-12 xl:col-span-12 h-[50vh]">
-          {dataTable.length ? (
+          {dataTable?.length ? (
             <TableTransactions data={dataTable} columns={COLUMS_DEFAULT} />
           ) : (
             <div className="col-span-12 xxl:col-span-12 xl:col-span-12 bg-white h-full">

@@ -106,7 +106,7 @@ function SalesTracker() {
       <div className="w-full flex flex-row justify-between items-center my-2">
         <span className="w-11/12 mx-4 flex justify-start flex-row items-center overflow-x-auto">
           {cards
-            .filter((ele) => ele.selected)
+            ?.filter((ele) => ele.selected)
             ?.map((ele, i) => (
               <div className="min-w-[22%] mx-2">
                 <CardDisplayData

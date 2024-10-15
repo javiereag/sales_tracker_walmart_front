@@ -102,13 +102,13 @@ function SalesTracker() {
   }, [page, limit, valueSearch, datePicker.finalDate, store]);
 
   return (
-    <div className="">
-      <div className="w-full flex flex-row justify-between items-center my-2">
-        <span className="w-11/12 mx-4 flex justify-start flex-row items-center overflow-x-auto">
+    <div className="text-sm">
+      <div className="flex flex-row justify-between items-center my-2 w-full">
+        <span className="flex flex-row justify-start items-center w-12/12 overflow-x-auto">
           {cards
             ?.filter((ele) => ele.selected)
             ?.map((ele, i) => (
-              <div className="min-w-[22%] mx-2">
+              <div className="mr-4 min-w-52">
                 <CardDisplayData
                   key={i}
                   title={ele.label}
@@ -123,8 +123,8 @@ function SalesTracker() {
         </span>
         <TopSalesTracker handleCards={handleCards} />
       </div>
-      <div className="box p-5">
-        <div className="h-32 w-full flex flex-col justify-around items-center">
+      <div className="p-5 box">
+        <div className="flex flex-col justify-around items-center w-full h-32">
           <DinamicSearchBar
             selectedOption={selectedOption}
             handleSelected={handleSelected}
@@ -153,7 +153,7 @@ function SalesTracker() {
             <Loader />
           )}
         </div>
-        <div className="flex flex-row justify-between items-center h-14 mt-4">
+        <div className="flex flex-row justify-between items-center mt-4 h-14">
           <span>
             Showing 1 to {limit} of Page {page + 1} of {totalPages}
           </span>

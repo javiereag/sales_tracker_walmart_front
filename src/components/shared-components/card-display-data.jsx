@@ -12,7 +12,7 @@ function CardDisplayData({
         <div
           className={`flex justify-center items-center ${
             color ? `bg-${color} text-white` : "bg-[#3FC0E8] text-[#3FC0E8]"
-          } bg-opacity-15  text-xl ${
+          } bg-opacity-15  text-lg ${
             rounded ? "rounded-full" : "rounded-md"
           } w-12 h-12`}
         >
@@ -23,15 +23,17 @@ function CardDisplayData({
         <div className="w-full font-semibold text-end text-gray-700 text-xs">
           {title}
         </div>
-        <div className="font-bold text-xl">
+        <div className="font-bold text-base">
           {type === "porcentage"
-            ? `${value?.toFixed(2)}%`
+            ? `${value?.toFixed(2) || 0}%`
             : type === "price"
-            ? `$${new Intl.NumberFormat("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              }).format(value)}`
-            : value}
+            ? `$${
+                new Intl.NumberFormat("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(value) || 0
+              }`
+            : value || 0}
         </div>
       </div>
     </div>

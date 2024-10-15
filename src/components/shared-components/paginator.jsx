@@ -3,7 +3,7 @@ function Paginator({ page = 0, totalPages = 0, handleJumpPage }) {
     <ul className="w-full ti-pagination">
       <li className="page-item" onClick={() => handleJumpPage(0)}>
         <span
-          className={`page-link !rounded-none px-3 py-[0.375rem]  ${
+          className={`page-link !rounded-none px-3 py-[0.375rem] !text-sm ${
             page === 0 ? "disabled cursor-not-allowed" : "cursor-pointer"
           }`}
           to="#"
@@ -13,7 +13,7 @@ function Paginator({ page = 0, totalPages = 0, handleJumpPage }) {
       </li>
       <li className="page-item" onClick={() => handleJumpPage(page - 1)}>
         <span
-          className={`page-link px-3 py-[0.375rem]  ${
+          className={`page-link px-3 py-[0.375rem] !text-sm  ${
             page === 0 ? "disabled cursor-not-allowed" : "cursor-pointer"
           }`}
           to="#"
@@ -35,7 +35,7 @@ function Paginator({ page = 0, totalPages = 0, handleJumpPage }) {
               onClick={() => handleJumpPage(index)}
             >
               <span
-                className={`page-link px-3 py-[0.375rem] cursor-pointer  ${
+                className={`page-link px-3 py-[0.375rem] cursor-pointer !text-sm  ${
                   page === index ? "active" : ""
                 } `}
               >
@@ -47,7 +47,7 @@ function Paginator({ page = 0, totalPages = 0, handleJumpPage }) {
       })}
       <li className="page-item" onClick={() => handleJumpPage(page + 1)}>
         <span
-          className={`page-link px-3 py-[0.375rem]  ${
+          className={`page-link px-3 py-[0.375rem] !text-sm  ${
             page === totalPages - 1
               ? "disabled cursor-not-allowed"
               : "cursor-pointer"
@@ -59,7 +59,7 @@ function Paginator({ page = 0, totalPages = 0, handleJumpPage }) {
       </li>
       <li className="page-item" onClick={() => handleJumpPage(totalPages - 1)}>
         <span
-          className={`page-link !rounded-none  px-3 py-[0.375rem]  ${
+          className={`page-link !rounded-none px-3 py-[0.375rem] !text-sm  ${
             page === totalPages - 1
               ? "disabled cursor-not-allowed"
               : "cursor-pointer"

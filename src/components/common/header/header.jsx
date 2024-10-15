@@ -41,7 +41,7 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
 
   const [storeOptions, setStoreOptions] = useState([]);
 
-  const [store, setStore] = useLocalStorage(
+  const [storeSelected, setStore] = useLocalStorage(
     "store",
     "Trinity Distributors LLC"
   );
@@ -385,7 +385,7 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
                   if (!value) return;
                   setStore(value);
                 }}
-                value={store}
+                value={storeSelected}
               >
                 {storeOptions?.map((ele, key) => (
                   <option value={ele.value} key={key}>

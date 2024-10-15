@@ -1,7 +1,7 @@
 export const COLUMS_DEFAULT = [
   { header: "Number", accessorKey: "consecutive" },
   { header: "Date", accessorKey: "date" },
-  { header: "Customer Email", accessorKey: "customer" },
+  { header: "Customer", accessorKey: "customer" },
   { header: "PO", accessorKey: "PO" },
   { header: "SKU", accessorKey: "sku" },
   { header: "State", accessorKey: "state" },

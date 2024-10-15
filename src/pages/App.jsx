@@ -20,7 +20,7 @@ function App() {
   }, []);
   return (
     <Fragment>
-      <Loader />
+      {/* <Loader /> */}
       <Provider store={store}>
         <HelmetProvider>
           <Helmet

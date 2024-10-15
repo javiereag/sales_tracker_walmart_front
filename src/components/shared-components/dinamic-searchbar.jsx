@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function DinamicSearchBar({ selectedOption, handleSelected, handleKeyDown }) {
+function DinamicSearchBar({ selectedOption, handleSelected, executeFunc }) {
   const [input, setInput] = useState("");
   const options = [
     { label: "Select an option", value: "" },
@@ -26,9 +26,12 @@ function DinamicSearchBar({ selectedOption, handleSelected, handleKeyDown }) {
         className="!border-gray-400 ti-form-input w-9/12"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => handleKeyDown(e, input)}
+        onKeyDown={(e) => executeFunc(e, input)}
       />
-      <button className="bg-primary rounded-r-sm w-1/12 h-full text-white">
+      <button
+        onClick={(e) => executeFunc("button", input)}
+        className="bg-primary rounded-r-sm w-1/12 h-full text-white"
+      >
         <i className="bi bi-search"></i>
       </button>
     </div>

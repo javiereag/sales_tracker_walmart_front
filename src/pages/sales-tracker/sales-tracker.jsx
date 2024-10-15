@@ -11,6 +11,7 @@ import CardDisplayData from "../../components/shared-components/card-display-dat
 import { formatDates } from "../../helpers/formatDates";
 import { COLUMS_DEFAULT } from "../../helpers/columsDefault";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import Loader from "../../components/common/loader/loader";
 
 function SalesTracker() {
   const [store, setStore] = useLocalStorage(
@@ -50,6 +51,7 @@ function SalesTracker() {
     try {
       if ((initialDate && !finalDate) || (!initialDate && finalDate)) return;
       if (initialDate > finalDate) return;
+      setDataTable([]);
       const response = await getDataToTable({
         page,
         limit,
@@ -73,8 +75,8 @@ function SalesTracker() {
     setLimit(e.target.value);
   };
 
-  const handleKeyDown = (e, value) => {
-    if (e.key === "Enter") {
+  const searchData = (e, value) => {
+    if (e.key === "Enter" || e === "button") {
       if (!selectedOption) return;
       setValueSearch(value);
       setPage(0);
@@ -126,7 +128,7 @@ function SalesTracker() {
           <DinamicSearchBar
             selectedOption={selectedOption}
             handleSelected={handleSelected}
-            handleKeyDown={handleKeyDown}
+            executeFunc={searchData}
           />
           <div className="flex flex-row justify-between items-center w-full">
             <CalendarSalesTracker
@@ -145,7 +147,11 @@ function SalesTracker() {
           </div>
         </div>
         <div className="h-[70vh]">
-          <TableTransactions data={dataTable} columns={columns} />
+          {dataTable.length ? (
+            <TableTransactions data={dataTable} columns={columns} />
+          ) : (
+            <Loader />
+          )}
         </div>
         <div className="flex flex-row justify-between items-center h-14 mt-4">
           <span>

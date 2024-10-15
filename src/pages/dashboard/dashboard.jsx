@@ -7,6 +7,7 @@ import { formatDates } from "../../helpers/formatDates";
 import TableTransactions from "../../components/shared-components/table-transactions";
 import { COLUMS_DEFAULT } from "../../helpers/columsDefault";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import Loader from "../../components/common/loader/loader";
 
 function Dashboard() {
   const [store, setStore] = useLocalStorage(
@@ -71,7 +72,13 @@ function Dashboard() {
         <AnalyticDash data={dataAnalytic || []} />
         <BottomAnalytic dataCards={dataCards} />
         <div className="gap-x-6 grid grid-cols-12 col-span-12 xxl:col-span-12 xl:col-span-12 h-[50vh]">
-          <TableTransactions data={dataTable} columns={COLUMS_DEFAULT} />
+          {dataTable.length ? (
+            <TableTransactions data={dataTable} columns={COLUMS_DEFAULT} />
+          ) : (
+            <div className="col-span-12 xxl:col-span-12 xl:col-span-12 bg-white h-full">
+              <Loader />
+            </div>
+          )}
         </div>
       </div>
     </Fragment>

@@ -39,7 +39,7 @@ const Header = ({ local_varaiable, ThemeChanger }) => {
   //Fullscvreen
   const [fullScreen, setFullScreen] = useState(false);
 
-  const [storeOptions, setStoreOptions] = useLocalStorage("storeOptions", []);
+  const [storeOptions, setStoreOptions] = useState([]);
 
   const [store, setStore] = useLocalStorage(
     "store",

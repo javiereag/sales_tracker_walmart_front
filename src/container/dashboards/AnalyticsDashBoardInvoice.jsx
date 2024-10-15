@@ -106,8 +106,8 @@ function AnalyticsDashBoardInvoice({ data }) {
   return (
     <div>
       <ReactApexChart
-        options={chartData.options}
-        series={chartData.series}
+        options={chartData.options || {}}
+        series={chartData.series || []}
         type="line"
         height={250}
       />

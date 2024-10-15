@@ -49,7 +49,7 @@ function TopSalesTracker({ handleCards }) {
   };
 
   return (
-    <div className="flex flex-row justify-between items-center w-1/12 h-32">
+    <div className="flex flex-row justify-end items-center w-1/12 h-32">
       <div className="flex-shrink-0 cursor-pointer">
         <div
           className="flex flex-col p-4 box hs-dropdown-toggle"

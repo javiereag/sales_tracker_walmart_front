@@ -69,7 +69,7 @@ function Dashboard() {
           dataCards={dataCards}
           setDatePicker={setDatePicker}
         />
-        <AnalyticDash data={dataAnalytic || []} />
+        {/* <AnalyticDash data={dataAnalytic || []} /> */}
         <BottomAnalytic dataCards={dataCards} />
         <div className="gap-x-6 grid grid-cols-12 col-span-12 xxl:col-span-12 xl:col-span-12 h-[50vh]">
           {dataTable?.length ? (

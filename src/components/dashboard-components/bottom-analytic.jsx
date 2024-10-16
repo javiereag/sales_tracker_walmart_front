@@ -5,7 +5,7 @@ function BottomAnalytic({
 }) {
   const icon = <i className="bi-receipt-cutoff bi"></i>;
   return (
-    <div className="gap-x-6 grid grid-cols-12 col-span-12 xxl:col-span-12 xl:col-span-12">
+    <div className="gap-x-6 grid grid-cols-12 col-span-12 xxl:col-span-12 xl:col-span-12 h-20">
       <div className="col-span-2">
         <CardDisplayData
           title="Unit Sold"

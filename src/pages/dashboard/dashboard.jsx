@@ -63,7 +63,7 @@ function Dashboard() {
   }, [datePicker.finalDate, store]);
   return (
     <Fragment>
-      <div className="gap-x-6 grid grid-cols-12 py-2">
+      <div className="gap-x-6 !space-y-2 grid grid-cols-12 py-2">
         <TopInDashboard
           datePicker={datePicker}
           dataCards={dataCards}

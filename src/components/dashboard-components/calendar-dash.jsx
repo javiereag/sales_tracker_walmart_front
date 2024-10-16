@@ -2,9 +2,9 @@ import DatePicker from "react-datepicker";
 
 function CalendarDash({ datePicker, setDatePicker }) {
   return (
-    <div className="relative flex flex-col gap-2 col-span-4 bg-primary p-2 rounded-lg h-24">
+    <div className="relative flex flex-col gap-2 col-span-4 bg-primary px-3 py-2 rounded-lg h-20">
       <div className="text-start">
-        <p className="font-semibold text-lg text-white">Your Store Info</p>
+        <p className="font-semibold text-sm text-white">Your Store Info</p>
       </div>
 
       <div className="relative z-10 flex justify-between items-stretch !gap-2 w-full h-2/4">

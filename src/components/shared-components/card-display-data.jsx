@@ -7,7 +7,7 @@ function CardDisplayData({
   rounded = false,
 }) {
   return (
-    <div className="flex !flex-row justify-around items-center w-full h-24 box">
+    <div className="flex !flex-row justify-around items-center w-full h-20 box">
       <div className={`h-full w-5/12 flex justify-start pl-4 items-center`}>
         <div
           className={`flex justify-center items-center ${
@@ -19,7 +19,7 @@ function CardDisplayData({
           {icon}
         </div>
       </div>
-      <div className="flex flex-col justify-center items-end px-2 w-7/12">
+      <div className="flex flex-col justify-center items-end mr-6 w-28">
         <div className="w-full font-semibold text-end text-gray-700 text-xs">
           {title}
         </div>

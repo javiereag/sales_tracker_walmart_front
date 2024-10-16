@@ -10,6 +10,11 @@ function TableTransactions({ data = [], columns }) {
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+
+  const truncateText = (text, maxLength) => {
+    return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+  };
+
   return (
     <div className="col-span-12 xxl:col-span-12 xl:col-span-12 max-h-full text-xs overflow-auto">
       <table className="w-full min-w-max">
@@ -41,12 +46,14 @@ function TableTransactions({ data = [], columns }) {
                 <td
                   className={`border-gray-300 px-2 border-b  ${
                     cell.column.id === "consecutive"
-                      ? "w-24 text-center"
+                      ? "text-center"
                       : "min-w-20 text-start"
-                  } `} // Ancho mínimo para las celdas
+                  } `}
                   key={id}
                 >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  {cell.column.id === "customer"
+                    ? truncateText(row.original.customer,30)
+                    : flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
             </tr>
